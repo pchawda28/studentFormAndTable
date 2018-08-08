@@ -1,0 +1,65 @@
+<div class="container">
+  <div [hidden]="hide">
+    <h3>Student Form</h3>
+    <!-- <form #studentForm= "ngForm" (ngSubmit)="Submit(studentForm.value)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" ngModel id="name" name="name" #name="ngModel" required >
+          <div [hidden]="name.valid || name.pristine"
+     class="alert alert-danger" (keypress)="eventHandler($event)">
+  Name is required
+</div>
+        </div>
+   
+   
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+   
+      </form> -->
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName" required>
+        <em class="invalidInput" *ngIf="studentForm.controls.firstName.invalid && studentForm.controls.firstName.dirty &&studentForm.controls.firstName.errors.pattern">Name should contain only alphabets</em>
+        <em class="invalidInput" *ngIf="studentForm.controls.firstName.invalid && studentForm.controls.firstName.dirty &&studentForm.controls.firstName.errors.required">Text is required</em>
+      </label>
+
+
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName" required>
+        <em class="invalidInput" *ngIf="studentForm.controls.lastName.invalid && studentForm.controls.lastName.dirty &&studentForm.controls.lastName.errors.pattern">Name should contain only alphabets</em>
+        <em class="invalidInput" *ngIf="studentForm.controls.lastName.invalid && studentForm.controls.lastName.dirty &&studentForm.controls.lastName.errors.required">Text is required</em>
+      </label>
+
+      <label>
+        Class:
+        <input type="text" formControlName="class" required>
+        <em class="invalidInput" *ngIf="studentForm.controls.class.invalid && studentForm.controls.class.dirty &&studentForm.controls.class.errors.pattern">Enetr a valid class</em>
+        <em class="invalidInput" *ngIf="studentForm.controls.class.invalid && studentForm.controls.class.dirty &&studentForm.controls.class.errors.required">Class is required</em>
+      </label>
+
+
+
+      <label>
+        Year Of Passing:
+        <input type="number" formControlName="year" max="2017" required>
+        <em class="invalidInput" *ngIf="studentForm.controls.year.invalid && studentForm.controls.year.dirty &&studentForm.controls.year.errors.yearMsg">{{studentForm.controls.year.errors.yearMsg}}</em>
+        <em class="invalidInput" *ngIf="studentForm.controls.year.invalid && studentForm.controls.year.dirty &&studentForm.controls.year.errors.required">Year is required</em>
+      </label>
+
+      <label>
+        Percentage:
+        <input type="number" formControlName="percentage" max="2017" required>
+        <em class="invalidInput" *ngIf="studentForm.controls.percentage.invalid && studentForm.controls.percentage.dirty &&studentForm.controls.percentage.errors.percentMsg">Enter valid percentage</em>
+        <em class="invalidInput" *ngIf="studentForm.controls.percentage.invalid && studentForm.controls.percentage.dirty &&studentForm.controls.percentage.errors.required">Percentage is required</em>
+      </label>
+
+      <button type="submit" [disabled]="!studentForm.valid">Submit</button>
+
+    </form>
+  </div>
+  <div *ngIf="hide">
+    <h4>Student Form Submitted</h4>
+  </div>
+</div>
