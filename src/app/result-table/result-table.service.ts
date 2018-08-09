@@ -14,7 +14,6 @@ export class ResultTableService {
         private _http: Http
     ) { }
     public getStudentData() {
-        console.log("hello");
         const url = 'http://localhost:4200/assets/data.json';
         return this._http.get(url);
 

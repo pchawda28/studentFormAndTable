@@ -1,31 +1,8 @@
-<!-- <table class= "table" style="width:100%">
-  <tr>Students Result Board</tr>
-  <tr>
-    <th>Student Name</th>
-    <th>Roll Number</th> 
-    <th>Total Marks</th>
-    <th>Status</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>null</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-    <td>null</td>
-  </tr>
-</table> -->
 <div class="container">
-  <!-- <div>Hello Student Table</div> -->
+  <div>
   <h3>Student Result Board</h3>
   <p-dataTable [value]="studentData" sortOrder={{defaultSortOrder}} sortField="name">
-
     <p-column field="name" header="Name">
-
     </p-column>
     <p-column field="rollNumber" header="Roll Number">
     </p-column>
@@ -33,18 +10,11 @@
     </p-column>
     <p-column field="status" header="Status">
     </p-column>
-
   </p-dataTable>
 </div>
-
-<!-- <p-dataTable [value]="studentData" sortOrder={{defaultSortOrder}} sortField="name">
-      <ng-template pTemplate="header">
-          <tr>
-              <th>Vin</th>
-              <th>Year</th>
-              <th>Brand</th>
-              <th>Color</th>
-          </tr>
-      </ng-template>
-    
-      </p-dataTable> -->
+<div>
+    <a (click)="addNewStudent()">
+      Add new student
+      </a>
+</div>
+</div>
